@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header';
 import About from './components/About';
@@ -54,21 +54,17 @@ const App = () => {
             {isAdmin && <li><Link to="/admin/tools">Admin Tools</Link></li>}
           </ul>
         </nav>
-        <Switch>
-          <Route path="/about" component={About} />
-          <Route path="/skills" component={Skills} />
-          <Route path="/experience" component={Experience} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/reviews" component={Reviews} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/admin/login">
-            {isAdmin ? <Redirect to="/admin" /> : <AdminLogin onLogin={handleLogin} />}
-          </Route>
-          <Route path="/admin/tools">
-            {isAdmin ? <AdminTools /> : <Redirect to="/admin/login" />}
-          </Route>
-          <Redirect to="/" />
-        </Switch>
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/admin/login" element={isAdmin ? <Navigate to="/admin" /> : <AdminLogin onLogin={handleLogin} />} />
+          <Route path="/admin/tools" element={isAdmin ? <AdminTools /> : <Navigate to="/admin/login" />} />
+          <Route path="/" element={<Navigate to="/about" />} />
+        </Routes>
       </div>
     </Router>
   );
