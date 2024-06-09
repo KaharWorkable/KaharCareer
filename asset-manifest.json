@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.df702fad.css",
-    "main.js": "/static/js/main.5dc23f25.js",
-    "index.html": "/index.html",
-    "main.df702fad.css.map": "/static/css/main.df702fad.css.map",
-    "main.5dc23f25.js.map": "/static/js/main.5dc23f25.js.map"
+    "main.css": "/kaharcareer/static/css/main.df702fad.css",
+    "main.js": "/kaharcareer/static/js/main.65e59cac.js",
+    "index.html": "/kaharcareer/index.html",
+    "main.df702fad.css.map": "/kaharcareer/static/css/main.df702fad.css.map",
+    "main.65e59cac.js.map": "/kaharcareer/static/js/main.65e59cac.js.map"
   },
   "entrypoints": [
     "static/css/main.df702fad.css",
-    "static/js/main.5dc23f25.js"
+    "static/js/main.65e59cac.js"
   ]
 }
