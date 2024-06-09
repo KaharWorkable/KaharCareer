@@ -20,7 +20,7 @@ const AdminLogin = ({ onLogin }) => {
 
   return (
     <div className="container mx-auto px-4 py-6">
-      <h2 className="text-2xl font-bold mb-4">Admin Login</h2>
+      <h2 className="text-3xl font-bold mb-4">Admin Login</h2>
       <form onSubmit={handleLogin}>
         <input
           type="text"
