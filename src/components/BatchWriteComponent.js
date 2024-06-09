@@ -1,65 +1,58 @@
-import React from "react";
-import { getFirestore, collection, doc, writeBatch } from "firebase/firestore";
-import { db } from "../firebaseConfig";
+// src/components/BatchWriteComponent.js
+import React, { useState } from 'react';
+import { db } from '../firebaseConfig';
+import { collection, writeBatch, doc } from 'firebase/firestore';
 
 const BatchWriteComponent = () => {
-  const data = [
-    { skill: "Linux (Proficient)", category: "programming" },
-    { skill: "SQL (Proficient)", category: "programming" },
-    { skill: "React", category: "programming" },
-    { skill: "Java", category: "programming" },
-    { skill: "HTML5", category: "programming" },
-    { skill: "JavaScript (Intermediate)", category: "programming" },
-    { skill: "Python", category: "programming" },
-    { skill: "Node.js", category: "programming" },
-    { skill: "CSS", category: "programming" },
-    { skill: "React.js (Intermediate)", category: "programming" },
-    { skill: "C#", category: "programming" },
-    { skill: "Laravel", category: "programming" },
-    { skill: "Bash Script (Proficient)", category: "programming" },
-    { skill: "PowerShell", category: "programming" },
-    { skill: "PHP (Proficient)", category: "programming" },
-    { skill: "Microsoft 365", category: "software" },
-    { skill: "Visual Studio Code", category: "software" },
-    { skill: "Adobe Photoshop", category: "software" },
-    { skill: "Adobe After Effects", category: "software" },
-    { skill: "Adobe Illustrator", category: "software" },
-    { skill: "GitHub", category: "software" },
-    { skill: "Unity Engine", category: "software" },
-    { skill: "Adobe Premiere Pro", category: "software" },
-    { skill: "Azure DevOps Services", category: "software" },
-    { skill: "Android Studio", category: "software" },
-    { skill: "Sublime Text Editor", category: "software" },
-    { skill: "Bahasa Malaysia (Native)", category: "language" },
-    { skill: "English (Fluent)", category: "language" },
-    { skill: "Video Editing", category: "others" },
-    { skill: "Photography", category: "others" }
-  ];
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
 
-  const batchWrite = async () => {
-    const batch = writeBatch(db);
+  const handleBatchWrite = async () => {
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
 
-    data.forEach((record) => {
-      const docRef = doc(collection(db, "programming"));
-      batch.set(docRef, record);
-    });
+    const headerData = {
+      logo_url: "https://5.imimg.com/data5/SELLER/Default/2023/5/309146928/EX/OP/NJ/146320826/logo-design-all-types-of-logo-design.png",
+      title: "Kaharuddin Website",
+      nav_links: [
+        { label: "About", url: "/about" },
+        { label: "Skills", url: "/skills" },
+        { label: "Experience", url: "/experience" },
+        { label: "Projects", url: "/projects" },
+        { label: "Reviews", url: "/reviews" },
+        { label: "Contact", url: "/contact" }
+      ]
+    };
 
     try {
+      const batch = writeBatch(db);
+      const headerRef = doc(collection(db, 'headers'));
+      batch.set(headerRef, headerData);
+
       await batch.commit();
-      console.log("Batch write completed successfully");
-    } catch (error) {
-      console.error("Error in batch write: ", error);
+      setSuccess('Batch write completed successfully!');
+    } catch (e) {
+      console.error('Error in batch write: ', e);
+      setError('Error in batch write: ' + e.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="container mx-auto px-4 py-6">
+      <h2 className="text-2xl font-bold mb-4">Batch Write Data</h2>
       <button
-        onClick={batchWrite}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        onClick={handleBatchWrite}
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+        disabled={loading}
       >
-        Batch Write Data
+        {loading ? 'Loading...' : 'Start Batch Write'}
       </button>
+      {success && <p className="text-green-500 mt-4">{success}</p>}
+      {error && <p className="text-red-500 mt-4">{error}</p>}
     </div>
   );
 };
