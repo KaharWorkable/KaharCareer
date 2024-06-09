@@ -22,14 +22,16 @@ const About = () => {
 
   return (
     <div className="container mx-auto px-4 py-6">
-      <h2 className="text-3xl font-bold mb-4">About</h2>
-      {aboutInfo.length > 0 ? (
-        aboutInfo.map((info) => (
-          <p key={info.id} className="text-lg">{info.me}</p>
-        ))
-      ) : (
-        <p className="text-lg">Loading...</p>
-      )}
+      <h2 className="text-4xl font-bold mb-6 text-center">About Me</h2>
+      <div className="bg-white shadow-lg rounded-lg p-6">
+        {aboutInfo.length > 0 ? (
+          aboutInfo.map((info) => (
+            <p key={info.id} className="text-lg text-gray-700 leading-relaxed mb-4"><strong>{info.me}</strong></p>
+          ))
+        ) : (
+          <p className="text-lg text-center text-gray-500">Loading...</p>
+        )}
+      </div>
     </div>
   );
 };

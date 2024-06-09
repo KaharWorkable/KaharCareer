@@ -21,13 +21,15 @@ const Header = () => {
     fetchHeader();
   }, []);
 
-  if (!header) return <div>Loading...Will setup later</div>;
+  if (!header) return <div className="text-center py-10">Loading...Will setup later</div>;
 
   return (
     <header className="bg-white shadow">
-      <div className="container mx-auto px-4 py-6">
-        <img src={header.logo_url} alt="Logo" className="w-16 h-16"/>
-        <h1 className="text-3xl font-bold">{header.title}</h1>
+      <div className="container mx-auto px-4 py-6 flex items-center justify-between">
+        <div className="flex items-center">
+          <img src={header.logo_url} alt="Logo" className="w-16 h-16 mr-4"/>
+          <h1 className="text-3xl font-bold">{header.title}</h1>
+        </div>
         <nav>
           <ul className="flex space-x-4">
             {header.nav_links.map(link => (
