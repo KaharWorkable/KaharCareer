@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/kaharcareer/static/css/main.df702fad.css",
-    "main.js": "/kaharcareer/static/js/main.65e59cac.js",
+    "main.css": "/kaharcareer/static/css/main.3c7d175e.css",
+    "main.js": "/kaharcareer/static/js/main.5b6a3f1d.js",
+    "static/media/slick.svg": "/kaharcareer/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/kaharcareer/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/kaharcareer/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/kaharcareer/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/kaharcareer/index.html",
-    "main.df702fad.css.map": "/kaharcareer/static/css/main.df702fad.css.map",
-    "main.65e59cac.js.map": "/kaharcareer/static/js/main.65e59cac.js.map"
+    "main.3c7d175e.css.map": "/kaharcareer/static/css/main.3c7d175e.css.map",
+    "main.5b6a3f1d.js.map": "/kaharcareer/static/js/main.5b6a3f1d.js.map"
   },
   "entrypoints": [
-    "static/css/main.df702fad.css",
-    "static/js/main.65e59cac.js"
+    "static/css/main.3c7d175e.css",
+    "static/js/main.5b6a3f1d.js"
   ]
 }
