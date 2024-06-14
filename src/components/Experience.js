@@ -20,15 +20,34 @@ const Experience = () => {
     getData();
   }, []);
 
+  const highlightTextBeforeColon = (text) => {
+    const parts = text.split(':');
+    return (
+      <>
+        <span className="font-semibold text-gray-800">{parts[0]}</span>
+        {parts[1] ? `: ${parts[1]}` : ''}
+      </>
+    );
+  };
+
   return (
     <div className="container mx-auto px-4 py-6">
-      <h2 className="text-3xl font-bold mb-4">Experience</h2>
+      <h2 className="text-4xl font-bold mb-6 text-center text-gray-800">Work Experience</h2>
       {experienceInfo.length > 0 ? (
         experienceInfo.map((info) => (
-          <p key={info.id} className="text-lg">{info.content}</p>
+          <div key={info.id} className="mb-8 bg-white shadow-lg rounded-lg p-6">
+            <h3 className="text-2xl font-semibold text-gray-800">{info.company}</h3>
+            <p className="text-lg italic text-gray-600">{info.role}</p>
+            <p className="text-lg text-gray-600">{info.duration}</p>
+            <ul className="list-disc ml-6 mt-4 text-gray-700">
+              {info.details.map((detail, index) => (
+                <li key={index} className="text-lg mb-2">{highlightTextBeforeColon(detail)}</li>
+              ))}
+            </ul>
+          </div>
         ))
       ) : (
-        <p className="text-lg">Loading...</p>
+        <p className="text-lg text-center text-gray-600">Loading...</p>
       )}
     </div>
   );

@@ -1,9 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 import { getAuth } from 'firebase/auth';
 import { getAnalytics } from 'firebase/analytics';
 
-//  Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC8g7L_G05Z1uE929cdeWS6FYW66SPCAXA",
   authDomain: "kaharcareer-db5ff.firebaseapp.com",
@@ -16,7 +16,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 const auth = getAuth(app);
 const analytics = getAnalytics(app);
 
-export { db, auth, analytics };
+export { db, storage, auth, analytics };
