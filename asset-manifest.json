@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/kaharcareer/static/css/main.5b066d1b.css",
-    "main.js": "/kaharcareer/static/js/main.22745933.js",
+    "main.js": "/kaharcareer/static/js/main.4d1da08a.js",
     "static/js/284.7d224f5f.chunk.js": "/kaharcareer/static/js/284.7d224f5f.chunk.js",
     "static/css/431.eefca7bb.chunk.css": "/kaharcareer/static/css/431.eefca7bb.chunk.css",
     "static/js/431.d790a82d.chunk.js": "/kaharcareer/static/js/431.d790a82d.chunk.js",
@@ -18,7 +18,7 @@
     "static/media/slick.woff": "/kaharcareer/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/kaharcareer/index.html",
     "main.5b066d1b.css.map": "/kaharcareer/static/css/main.5b066d1b.css.map",
-    "main.22745933.js.map": "/kaharcareer/static/js/main.22745933.js.map",
+    "main.4d1da08a.js.map": "/kaharcareer/static/js/main.4d1da08a.js.map",
     "284.7d224f5f.chunk.js.map": "/kaharcareer/static/js/284.7d224f5f.chunk.js.map",
     "431.eefca7bb.chunk.css.map": "/kaharcareer/static/css/431.eefca7bb.chunk.css.map",
     "431.d790a82d.chunk.js.map": "/kaharcareer/static/js/431.d790a82d.chunk.js.map",
@@ -32,6 +32,6 @@
   },
   "entrypoints": [
     "static/css/main.5b066d1b.css",
-    "static/js/main.22745933.js"
+    "static/js/main.4d1da08a.js"
   ]
 }
